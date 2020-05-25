@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns5="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:db="http://docbook.org/ns/docbook"
+          xmlns:scilab="http://www.scilab.org"
+          xml:id="datadeploy" xml:lang="en">
+  <info>
+    <pubdate>$LastChangedDate$</pubdate>
+  </info>
+    <refnamediv>
+        <refname>datadeploy</refname>
+        <refpurpose>Short description</refpurpose>
+    </refnamediv>
+    <refsynopsisdiv>
+        <title>Syntax</title>
+        <synopsis>
+            datadeploy(header,data,herokuapp)
+        </synopsis>
+    </refsynopsisdiv>
+    <refsection>
+        <title>Arguments</title>
+        <variablelist>
+            <varlistentry>
+                <term>header</term>
+                <listitem>
+                    <para>header of the variable to deploy (vector of strings)</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>data</term>
+                <listitem>
+                    <para>core of the data to deploy (matrix of string or numbers)</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>herokuapp</term>
+                <listitem>
+                    <para>name of heroku app to deploy (contained in the URL)</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsection>
+    <refsection>
+        <title>Description</title>
+        <variablelist>
+            <varlistentry>
+                <listitem>
+                    <para>Deploy your data as an API with a JSON format on Heroku.</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsection>
+    <refsection>
+        <title>Examples</title>
+        <programlisting role="example">
+            M = ['A','B';
+                 '1','2';
+                 '3','4']
+
+            header = M(1,:)
+            data = M(2:$,:)
+            herokuapp = "myherokuapp"
+            datadeploy(header,data,herokuapp);
+        </programlisting>
+    </refsection>
+    <refsection role="see also">
+        <title>See also</title>
+        <simplelist type="inline">
+            <member><link linkend="csvWrite">csvWrite</link></member>
+            <member><link linkend="csvRead">csvRead</link></member>
+        </simplelist>
+    </refsection>
+</refentry>

@@ -1,0 +1,31 @@
+function quitModule()
+
+    etc_tlbx  = get_absolute_file_path("datadeploy.quit");
+    etc_tlbx  = getshortpathname(etc_tlbx);
+    root_tlbx = strncpy( etc_tlbx, length(etc_tlbx)-length("\etc\") );
+
+    // Remove macros
+    if(isdef("datadeploylib")) then
+        m = libraryinfo("datadeploylib");
+        clear datadeploylib;
+        clear(m);
+    end
+
+    // Remove Preferences GUI
+    // =============================================================================
+    if getscilabmode() == "STD" then
+        removeModulePreferences(root_tlbx);
+    end
+
+endfunction
+
+// Remove macros
+if(isdef("datadeploylib")) then
+    m = libraryinfo("datadeploylib");
+    clear datadeploylib;
+    clear(m);
+    clear m;
+end
+
+quitModule();
+clear quitModule;
